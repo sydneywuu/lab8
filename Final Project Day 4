@@ -1,0 +1,37 @@
+# lab08pt2.py
+# Sydney Wuu
+# 15 May 2020
+
+'''My second game, entitled Escape the Castle, follows a choose your own adventure
+theme and requires users to creatively choose what they deem best to escape an evil
+prison. I plan to use if-else statements to form the basis of this game's code.
+'''
+
+def Escape_the_Castle_game():
+    print('Welcome to choose your own adenture: Escape the Castle edition. Let us play!')
+    print('First, you successfully pick a lock in the dungeon, crawl through the small hole, and encounter two doors.  Do you choose the green door or the black door?')
+    door = input()
+
+# Users first encounter two doors: one green and one black. They must type in the color door they choose to enter.
+    if door == 'green':
+        print("Oh no! A green dragon popped up behind the door. With one horrendous chomp, you died.")
+        return 0
+# If the user enters a green door, he or she will automatically be eaten by a dragon.
+    elif door == 'black':
+        this_or_that = input( "A coyote waits behind the black door. Will you play dead or scream?")
+        while True:
+            # If the user chooses to scream after entering the black door, he or she dies.
+            if this_or_that == 'scream':
+                print("Your high-pitched scream startled the coyote; you died.")
+                return 0
+            elif this_or_that == 'play dead':
+                print("Yay, the coyote sniffed you and believed you were dead so it walked away.")
+            else:
+                this_or_that = input('Sorry, but that was not a valid response. Do you want to play dead or scream?')
+
+    else:
+        door = input('Sorry, but that is not a valid choice. Do you want to enter the green door or the black door?')
+        return 0
+
+while input('Do you want to play a game? [y/n]') == 'y':
+    Escape_the_Castle_game()
