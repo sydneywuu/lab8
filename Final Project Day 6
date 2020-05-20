@@ -1,0 +1,62 @@
+# lab08pt2.py
+# Sydney Wuu
+# 15 May 2020
+
+'''My second game, entitled Escape the Castle, follows a choose your own adventure
+theme and requires users to creatively choose what they deem best to escape an evil
+prison. I plan to use if-else statements to form the basis of this game's code.
+'''
+
+def Escape_the_Castle_game():
+    print('Welcome to choose your own adenture: Escape the Castle edition. Let us play!')
+    print('First, you successfully pick a lock in the dungeon, crawl through the small hole, and encounter two doors.  Do you choose the green door or the black door?')
+    door = input()
+
+# Users first encounter two doors: one green and one black. They must type in the color door they choose to enter.
+    if door == 'green':
+        print("Oh no! A green dragon popped up behind the door. With one horrendous chomp, you died.")
+        return 0
+# If the user enters a green door, he or she will automatically be eaten by a dragon.
+    elif door == 'black':
+        this_or_that = input( "A coyote waits behind the black door. It appears to be guarding an object, but you can't see clearly. Will you play dead or scream?")
+        while True:
+            # If the user chooses to scream after entering the black door, he or she dies, hence the return 0.
+            if this_or_that == 'scream':
+                print("Your high-pitched scream startled the coyote; you died.")
+                return 0
+            # However, if the user chooses to scream after entering the black door, he or she progresses into the next round of the game.
+            elif this_or_that == 'play dead':
+                car_or_yacht = input("Yay, the coyote sniffed you and believed you were dead so it walked away. Now you come face to face with two vehicles. Do you steal the car or take the yacht?")
+                while True:
+                    # If the user chooses to steal the car after making it past the coyote, he or she dies, hence the return 0.
+                    if car_or_yacht == 'car':
+                        print("The car is out of gas. Unable to escape, you die.")
+                        return 0
+                    # However, if the user chooses to steal the yacht after playing dead to the coyote, he or she progresses into the final round of the game.
+                    elif car_or_yacht == 'yacht':
+                        blue_or_pink = input("Last question: You are faced with a blue and pink door. Time is running out, so you can only choose one. Which one do you choose?")
+                        while True:
+                            # If the user chooses to enter the blue door, he or she dies, hence the return 0.
+                            if blue_or_pink == 'blue':
+                                print("The blue stands for ocean. Unfortunately, 100,000 gallons of water pour onto you and you drown. Try again!")
+                                return 0
+                            # However, if the user chooses to enter the pink door, he or she becomes a winner and makes it out of the evil castle alive!
+                            elif blue_or_pink == 'pink':
+                                print("Congrats! The pink stands for love. You use your yacht to escape once the pink door opens to fresh air. You made it out of the castle successfully!")
+                            # All of the else statements below this code refer to what the game outputs if the user does not type in a valid response. I am trying to account for all possible errors in the code.
+                            else: 
+                                blue_or_pink = input('Sorry, but that was not a valid response. Do you want to enter the blue door or the pink door?')
+                                return 0
+                    else: 
+                        car_or_yacht = input('Sorry, but that was not a valid response. Do you want to steal the car or the yacht?')
+                        return 0
+            else:
+                this_or_that = input('Sorry, but that was not a valid response. Do you want to play dead or scream?')
+                return 0
+
+    else:
+        door = input('Sorry, but that is not a valid choice. Do you want to enter the green door or the black door?') 
+        return 0
+
+while input('Do you want to play a game? [y/n]') == 'y':
+    Escape_the_Castle_game()
